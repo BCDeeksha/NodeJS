@@ -1,7 +1,7 @@
 let express = require('express');
 let app = express();
 let port = 9801;
-// let {dbConnect} = require('./src/controller/dbcontroller');
+let {dbConnect} = require('./src/controller/dbcontroller');
 
 let menu = [
     {link:'/',name:'Home'},
@@ -37,7 +37,7 @@ app.use('/category',categoryRouter)
 app.use('/products',productRouter)
 
 app.listen(port,(err) => {
-    // dbConnect()
+    dbConnect();
     if(err) throw err;
 //    console.log("Server is running on port "+port)
     console.log(`Server is running on port ${port}`)

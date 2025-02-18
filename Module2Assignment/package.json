@@ -1,5 +1,5 @@
 {
-  "name": "fullstack",
+  "name": "module2assignment",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,6 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "mongodb": "^6.13.0"
+    "yargs": "^17.7.2"
   }
 }

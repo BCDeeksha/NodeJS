@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a New File</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Create a New File</h1>
+
+  <% if (message) { %>
+    <div class="message"><%= message %></div>
+  <% } %>
+
+  <!-- Form to submit filename -->
+  <form action="/" method="GET">
+    <label for="filename">Enter Filename:</label>
+    <input type="text" id="filename" name="filename" required>
+    <button type="submit">Create File</button>
+  </form>
+
+  <h2>Created Files:</h2>
+  <ul>
+    <% filenames.forEach(function(filename) { %>
+      <li><%= filename %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>
