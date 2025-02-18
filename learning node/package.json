@@ -1,0 +1,23 @@
+{
+  "name": "learning-node",
+  "version": "1.0.0",
+  "description": "Node Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "devloper"
+  },
+  "author": "developer",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cros": "^1.0.1",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "chai": "^5.2.0"
+  }
+}
