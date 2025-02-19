@@ -6,10 +6,15 @@ let db;
 async function dbConnect(){
     const client = new MongoClient(mongoUrl);
     await client.connect();
-    db = client.db('category');
+    db = client.db('febnode');
     console.log('connection successfull')
 }
 
+async function getData(colName,query) {
+    return await db.collection(colName).find(query).toArray();
+}
+
 module.exports = {
-    dbConnect
+    dbConnect,
+    getData
 }

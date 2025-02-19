@@ -1,38 +1,15 @@
 let express = require('express');
 let categoryRouter = express.Router()
+let {getData} = require('./dbcontroller')
 
-let data = [
-    {
-        "_id": "6187738a62a1816f8858634d",
-        "id": 1,
-        "category": "Clothes",
-        "thumb":"test"
-        },
-        {
-        "_id": "6187738a62a1816f8858634f",
-        "id": 2,
-        "category": "Phones",
-        "thumb":"test1"
-        },
-        {
-        "_id": "6187738a62a1816f88586350",
-        "id": 3,
-        "category": "Kitchen Items",
-        "thumb":"test2"
-        },
-        {
-            "_id": "6187738a62a1816f88586350",
-            "id": 3,
-            "category": "Footwear",
-            "thumb":"test2"
-            }
-]
-function router(){
+function router(menu){
     
     categoryRouter.route('/')
-    .get((req,res) => {
+    .get(async(req,res) => {
         // res.send("This is the Category route")
-        res.render('Category',{title:'Category Page',category:data})
+        let query = {};
+        let data = await getData('category',query)
+        res.render('Category',{title:'Category Page',category:data,menu})
 })
 
 categoryRouter.route('/details')

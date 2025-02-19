@@ -25,24 +25,24 @@
       </button>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
-        <ul class="nav navbar-nav">
-          <% for(i=0;i<menu.length;i++){%>
-            <li>
-              <a href="<%=menu[i].link%>"><%=menu[i].name%></a>
-            </li>
-          <%}%>
-        </ul>
-        <ul class="nav navbar-right navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
-            <ul class="dropdown-menu" style="padding:12px;">
-              <form class="form-inline">
-                <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
-              </form>
-            </ul>
+      <ul class="nav navbar-nav">
+        <% for(i=0;i<menu.length;i++){%>
+          <li>
+            <a href="<%=menu[i].link%>"><%=menu[i].name%></a>
           </li>
-        </ul>
-        </nav>
+        <%}%>
+      </ul>
+      <ul class="nav navbar-right navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+          <ul class="dropdown-menu" style="padding:12px;">
+            <form class="form-inline">
+              <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+            </form>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </div>
 </header>
 
@@ -89,18 +89,18 @@
           
           
           <!--/stories-->
-          <%for(i=0;i<product.length;i++){%>
+          <%for(i=0;i<products.length;i++){%>
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="<%=product[i].Image%>" style="width:100px;height:100px" class="img-circle"></a>
+              <a class="story-title" href="#"><img alt="" src="<%=products[i].Image%>" style="width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
-              <h3><%=product[i].product_name%></h3>
+              <h3><%=products[i].product_name%></h3>
               <div class="row">
                 <div class="col-xs-9">
                   <h4><span class="label label-default">
-                    <%=product[i].Brand?product[i].Brand:product[i].company%>
+                    <%=products[i].Brand?products[i].Brand:products[i].company%>
                   </span></h4><h4>
                   <small style="font-family:courier,'new courier';" class="text-muted"><a href="#" class="text-muted">Read More</a></small>
                   </h4></div>
