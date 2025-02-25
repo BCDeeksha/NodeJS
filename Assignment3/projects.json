@@ -1,0 +1,4 @@
+[
+    { "projectID": 101, "name": "Project Alpha", "client": "ABC Corp" },
+    { "projectID": 102, "name": "Project Beta", "client": "XYZ Inc" }
+]

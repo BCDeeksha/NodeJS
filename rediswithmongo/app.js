@@ -36,16 +36,14 @@ app.get('/', (req, res) => {
 
 app.get('/data', async(req,res) =>{
     const key = req.query.key;  // Assuming the key is passed as a query parameter
-    if (!key) {
-        return res.send('No key provided');
-    }
-        const redisResult = await client.get(key);
-        const mongoResult = await collection.findOne({ category: key });
+    const redisResult = await client.get(key);
+    const mongoResult = await collection.findOne({ category: key });
 
         // Check Redis first
         if (redisResult) {
             return res.send(`Key found in Redis: ${redisResult}`);
-        }else if (mongoResult) { // If not found in Redis, check MongoDB
+        }else 
+        if (mongoResult) { // If not found in Redis, check MongoDB
             return res.send(`Key found in MongoDB: ${mongoResult.message}`);
         } else {
             return res.send('Key not found in Redis or MongoDB');
