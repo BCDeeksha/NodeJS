@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        form { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; }
+        input, button { width: 100%; padding: 10px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>Order Form</h2>
+    <form action="/submit" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="address" placeholder="Address" required>
+        <input type="email" name="email" placeholder="Email" required>
+
+        <h3>Items:</h3>
+        <div id="items">
+            <div>
+                <input type="text" name="itemName[]" placeholder="Item Name" required>
+                <input type="number" name="itemPrice[]" placeholder="Price" required>
+                <input type="number" name="itemQuantity[]" placeholder="Quantity" required>
+            </div>
+        </div>
+
+        <button type="button" onclick="addItem()">Add Another Item</button>
+        <button type="submit">Submit Order</button>
+    </form>
+
+    <script>
+        function addItem() {
+            const itemDiv = document.createElement("div");
+            itemDiv.innerHTML = `
+                <input type="text" name="itemName[]" placeholder="Item Name" required>
+                <input type="number" name="itemPrice[]" placeholder="Price" required>
+                <input type="number" name="itemQuantity[]" placeholder="Quantity" required>
+            `;
+            document.getElementById("items").appendChild(itemDiv);
+        }
+    </script>
+
+</body>
+</html>

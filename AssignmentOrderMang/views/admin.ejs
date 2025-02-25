@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        table { width: 80%; margin: auto; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 10px; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h2>Admin Dashboard - Order List</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Items</th>
+            <th>Order Date</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <% orders.forEach(order => { %>
+        <tr>
+            <td><%= order.name %></td>
+            <td><%= order.email %></td>
+            <td><%= order.address %></td>
+            <td>
+                <ul>
+                    <% order.items.forEach(item => { %>
+                        <li><%= item.name %> - $<%= item.price %> x <%= item.quantity %></li>
+                    <% }) %>
+                </ul>
+            </td>
+            <td><%= new Date(order.createdAt).toLocaleDateString() %></td>
+            <td><%= order.status %></td>
+            <td>
+                <form action="/send-email" method="POST">
+                    <input type="hidden" name="email" value="<%= order.email %>">
+                    <input type="hidden" name="status" value="<%= order.status %>">
+                    <button type="submit">Send Email</button>
+                </form>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>
