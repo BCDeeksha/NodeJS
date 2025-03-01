@@ -1,0 +1,16 @@
+<h1>Shopping List</h1>
+<ul>
+  <% products.forEach(product => { %>
+    <li><%= product.name %> - $<%= product.price %></li>
+  <% }) %>
+</ul>
+
+<% if (user.role === "admin") { %>
+  <form action="/products/add" method="POST">
+    <input type="text" name="name" placeholder="Product Name" required>
+    <input type="number" name="price" placeholder="Price" required>
+    <button type="submit">Add Product</button>
+  </form>
+<% } %>
+
+<a href="/auth/logout">Logout</a>
